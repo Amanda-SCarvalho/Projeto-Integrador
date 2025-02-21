@@ -1,0 +1,129 @@
+/* fonte: poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Configurações do body */
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color:#000000;
+    font-family: "Poppins";
+}
+
+section {
+    padding: 28px 8%;
+}
+
+div img {
+    display: block;
+    width: 60%;
+    border-radius: 50px;
+}
+
+.flex-container{
+    display: flex;
+    max-width: 992px;
+    margin: auto;
+    width: 100%;
+    min-width: 320px;
+    
+}
+
+.apresentacao{
+    height: 100vh;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.apresentacao .texto-apresentacao{
+    min-height: 200px;
+    color: #fff;
+}
+
+.texto-apresentacao h1{
+   color: #007bff;
+   font-size: 48px;
+   margin-bottom: 10px;
+}
+
+.btn{
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  border-radius: 30px;
+  width: 220px;
+  display: block;
+  text-decoration: none;
+  height: 50px;
+  line-height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#quem-somos {
+    flex-direction: row-reverse;  
+    align-items: center;
+    justify-content: space-between;
+}
+
+#quem-somos h2{
+    font-size: 32px;
+    color: #007bff;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#quem-somos h2::before{
+    content: "";
+    height: 45px;
+    width: 3px;
+    margin-right: 5px;
+    background-color: #007bff;
+    position: relative;
+}
+
+#quem-somos p {
+    margin-bottom: 10px;
+    width: 90%;
+    color: #fff;
+}
+
+#quem-somos img {
+  width: 80px 80px;
+  border-radius: 100px;
+}
+
+.container-externo {
+    background-color: #007bff;
+    width: 100%;
+    height: 400px;
+}
+
+#servicos{
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+#servicos h2{
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.texto-apresentacao button {
+    padding: 10px 20px;
+    background-color:#007bff;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+ /* #4771b0 */
