@@ -33,18 +33,18 @@ div img {
     
 }
 
-.apresentacao{
+.logomarca {
     height: 100vh;
     align-items: center;
     justify-content: space-between;
 }
 
-.apresentacao .texto-apresentacao{
+.logomarca .texto-logomarca{
     min-height: 200px;
     color: #fff;
 }
 
-.texto-apresentacao h1{
+.texto-logomarca h1{
    color: #007bff;
    font-size: 48px;
    margin-bottom: 10px;
@@ -64,20 +64,20 @@ div img {
   margin-bottom: 10px;
 }
 
-#quem-somos {
+#apresentacao {
     flex-direction: row-reverse;  
     align-items: center;
     justify-content: space-between;
 }
 
-#quem-somos h2{
+#apresentacao h2{
     font-size: 32px;
     color: #007bff;
     display: flex;
     margin-bottom: 20px;
 }
 
-#quem-somos h2::before{
+#apresentacao h2::before{
     content: "";
     height: 45px;
     width: 3px;
@@ -86,13 +86,13 @@ div img {
     position: relative;
 }
 
-#quem-somos p {
+#apresentacao p {
     margin-bottom: 10px;
     width: 90%;
     color: #fff;
 }
 
-#quem-somos img {
+#apresentacao img {
   width: 80px 80px;
   border-radius: 100px;
 }
@@ -115,7 +115,7 @@ div img {
     margin-bottom: 20px;
 }
 
-.texto-apresentacao button {
+.texto-logomarca button {
     padding: 10px 20px;
     background-color:#007bff;
     border: none;
@@ -126,4 +126,3 @@ div img {
     color: black;
     text-decoration: none;
 }
- /* #4771b0 */
