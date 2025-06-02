@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;/*  */
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background: #dedede;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navegação fixa na lateral esquerda */
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* altura total da tela */
+    background: #001077;
+    width: 70px;
+    box-shadow: 10px 0 0 #c2f37f;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.navigation:hover {
+    width: 300px;
+}
+
+/* Se você tiver conteúdo ao lado, pode usar uma margem no main depois */
+main {
+    margin-left: 70px; /* ou 300px se quiser acompanhar o hover */
+    padding: 20px;
+    color: white;
+}
+
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 100px;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.navigation ul li a .icon ion-icon {
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+.navigation ul li.active {
+    background: #c2f37f;
+
+}
+
+.navigation ul li.active a .title {
+    color: #001077; /* cor do texto quando selecionado */
+    font-weight: 600;
+}
+
+.navigation ul li.active a .icon ion-icon {
+    color: #001077; /* cor do ícone quando selecionado */
+}
+
+
+.navigation ul li.active a::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #001077;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 #c2f37f;
+}
+
+.navigation ul li.active a::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #001077;
+    border-radius: 50%;
+    box-shadow: 15px -15px 0 #c2f37f;
+}
+
+/* Header */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 300px;
+  right: 0;
+  z-index: 1000;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 8px 15px;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 50px;
+}
+
+.search-box .icon {
+  font-size: 18px;
+  color: #555;
+  margin-right: 10px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.topbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-button {
+  background: #001077;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button ion-icon {
+  color: #c2f37f;
+  font-size: 20px;
+}
+
+.icon-button .badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.avatar img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
