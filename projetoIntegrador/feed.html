@@ -1,120 +1,200 @@
 <!DOCTYPE html>
-<html lang=pt-br">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feed - User</title>
-  <link rel="stylesheet" href="css/feed.css">
-  <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+  <title>Conecta Atleta</title>
+  <!-- IconScout CDN -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="feed.css">
 </head>
 
 <body>
-  <div class="navigation">
-    <ul>
-      <li class="list active">
-        <a href="#">
-          <span class="icon"><ion-icon name="home"></ion-icon></span>
-          <span class="title">Inicio</span>
-        </a>
-      </li>
-      <li class="list">
-        <a href="#">
-          <span class="icon"><ion-icon name="contact"></ion-icon></span>
-          <span class="title">Usuario</span>
-        </a>
-      </li>
-      <li class="list">
-        <a href="#">
-          <span class="icon"><ion-icon name="chatbubbles"></ion-icon></span>
-          <span class="title">Mensagens</span>
-        </a>
-      </li>
-      <li class="list">
-        <a href="#">
-          <span class="icon"><ion-icon name="settings"></ion-icon></span>
-          <span class="title">Configurações</span>
-        </a>
-      </li>
-      <li class="list">
-        <a href="#">
-          <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
-          <span class="title">Ajuda</span>
-        </a>
-      </li>
-      <li class="list">
-        <a href="#">
-          <span class="icon"><ion-icon name="log-out"></ion-icon></ion-icon></span>
-          <span class="title">Sair</span>
-        </a>
-      </li>
-    </ul>
-
-  </div>
-  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-  <script>
-    const list = document.querySelectorAll('.list');
-    function activeLink() {
-      list.forEach((item) =>
-        item.classList.remove('active'));
-      this.classList.add('active');
-    }
-    list.forEach((item) =>
-      item.addEventListener('click', activeLink));
-  </script>
-
-
-  <header class="topbar">
-
-    <div class="search-box">
-      <i class="icon ion-md-search"></i>
-      <input type="text" placeholder="Search">
-    </div>
-
-    <div class="topbar-icons">
-      <div class="icon-button">
-        <ion-icon name="notifications-outline"></ion-icon>
-        <span class="badge"></span>
+  <nav>
+    <div class="container">
+      <h2 class="logo">
+        Conecta Atleta
+      </h2>
+      <div class="search-bar">
+        <i class="uil uil-search"></i>
+        <input type="search" placeholder="Pesquisar">
       </div>
-      <div class="icon-button">
-        <ion-icon name="chatbubbles"></ion-icon>
-      </div>
-      <div class="avatar">
-        <img src="https://i.pravatar.cc/40" alt="Perfil">
+      <div class="create">
+        <label class="btn btn-primary" for="create-post">Criar</label>
+        <div class="profile-photo">
+          <img src="./images/profile-8.jpg" alt="">
+        </div>
       </div>
     </div>
-  </header>
+  </nav>
 
+  <!-------------------------------- MAIN ----------------------------------->
   <main>
     <div class="container">
       <!----------------- LEFT -------------------->
       <div class="left">
-        <div class="card-patrocinio">
-          <div class="card-header">
-            <h4>Patrocínios</h4>
-            <span class="status">Online <span class="dot"></span></span>
+        <a class="profile">
+          <div class="profile-photo">
+            <img src="./images/profile-8.jpg">
           </div>
+          <div class="handle">
+            <h4>Nia Ridania</h4>
+            <p class="text-muted">
+              @niaridania
+            </p>
+          </div>
+        </a>
 
-          <div class="card-body">
-            <div class="coin-image">
-              <img src="coin.png" alt="Coin">
+        <!----------------- SIDEBAR -------------------->
+        <div class="sidebar">
+          <a class="menu-item active">
+            <span><i class="uil uil-home"></i></span>
+            <h3>Home</h3>
+          </a>
+          <a class="menu-item">
+            <span><i class="uil uil-compass"></i></span>
+            <h3>Explorar</h3>
+          </a>
+          <a class="menu-item" id="notifications">
+            <span><i class="uil uil-bell"><small class="notification-count">9+</small></i></span>
+            <h3>Notificação</h3>
+            <!--------------- NOTIFICATION POPUP --------------->
+            <div class="notifications-popup">
+              <div>
+                <div class="profile-photo">
+                  <img src="./images/profile-2.jpg">
+                </div>
+                <div class="notification-body">
+                  <b>Keke Benjamin</b> aceitou seu pedido de amizade
+                  <small class="text-muted">2 Dias Atrás</small>
+                </div>
+              </div>
+              <div>
+                <div class="profile-photo">
+                  <img src="./images/profile-3.jpg">
+                </div>
+                <div class="notification-body">
+                  <b>John Doe</b> comentou em sua postagem
+                  <small class="text-muted">1 Hora Atrás</small>
+                </div>
+              </div>
+              <div>
+                <div class="profile-photo">
+                  <img src="./images/profile-4.jpg">
+                </div>
+                <div class="notification-body">
+                  <b>Marry Oppong</b> e <b>283 Outros</b> Curtiram o seu post
+                  <small class="text-muted">4 Minutos Atrás
+                  </small>
+                </div>
+              </div>
+              <div>
+                <div class="profile-photo">
+                  <img src="./images/profile-5.jpg">
+                </div>
+                <div class="notification-body">
+                  <b>Doris Y. Lartey</b> comentou em uma postagem na qual você foi marcado
+                  <small class="text-muted">2 Dias Atrás</small>
+                </div>
+              </div>
+              <div>
+                <div class="profile-photo">
+                  <img src="./images/profile-6.jpg">
+                </div>
+                <div class="notification-body">
+                  <b>Keyley Jenner</b> comentou em uma postagem na qual você foi marcado
+                  <small class="text-muted">1 Hora Atrás</small>
+                </div>
+              </div>
+              <div>
+                <div class="profile-photo">
+                  <img src="./images/profile-7.jpg">
+                </div>
+                <div class="notification-body">
+                  <b>Jane Doe</b> comentou no seu post
+                  <small class="text-muted">1 hora atrás</small>
+                </div>
+              </div>
             </div>
-            <div class="info">
-              <button class="info-btn">25 Patrocinadores</button>
-              <button class="info-btn">14 Fãs</button>
-              <button class="withdraw-btn">Retirar</button>
-            </div>
-          </div>
-
-          <div class="card-footer">
-            <strong>R$ 256</strong>
-          </div>
+            <!--------------- END NOTIFICATION POPUP --------------->
+          </a>
+          <a class="menu-item" id="messages-notifications">
+            <span><i class="uil uil-envelope-alt"><small class="notification-count">6</small></i></span>
+            <h3>Mensagens</h3>
+          </a>
+          <a class="menu-item">
+            <span><i class="uil uil-bookmark"></i></span>
+            <h3>Favoritos</h3>
+          </a>
+          <a class="menu-item">
+            <span><i class="uil uil-chart-line"></i></span>
+            <h3>Análise</h3>
+          </a>
+          <a class="menu-item" id="theme">
+            <span><i class="uil uil-palette"></i></span>
+            <h3>Tema</h3>
+          </a>
+          <a class="menu-item">
+            <span><i class="uil uil-setting"></i></span>
+            <h3>Configurações</h3>
+          </a>
         </div>
-
+        <!----------------- END OF SIDEBAR -------------------->
+        <label class="btn btn-primary" for="create-post">Criar Post</label>
       </div>
 
       <!----------------- MIDDLE -------------------->
       <div class="middle">
+        <!----------------- STORIES -------------------->
+        <div class="stories">
+          <div class="story">
+            <div class="profile-photo">
+              <img src="./images/profile-8.jpg">
+            </div>
+            <p class="name">Seu Story</p>
+          </div>
+          <div class="story">
+            <div class="profile-photo">
+              <img src="./images/story-1.jpg">
+            </div>
+            <p class="name">Lila James</p>
+          </div>
+          <div class="story">
+            <div class="profile-photo">
+              <img src="./images/profile-10.jpg">
+            </div>
+            <p class="name">Winnie Haley</p>
+          </div>
+          <div class="story">
+            <div class="profile-photo">
+              <img src="./images/profile-11.jpg">
+            </div>
+            <p class="name">Daniel Bale</p>
+          </div>
+          <div class="story">
+            <div class="profile-photo">
+              <img src="./images/profile-12.jpg">
+            </div>
+            <p class="name">Jane Doe</p>
+          </div>
+          <div class="story">
+            <div class="profile-photo">
+              <img src="./images/profile-13.jpg">
+            </div>
+            <p class="name">Tina White</p>
+          </div>
+        </div>
+        <!----------------- END OF STORIES -------------------->
+        <form action="" class="create-post">
+          <div class="profile-photo">
+            <img src="./images/profile-1.jpg">
+          </div>
+          <input type="text" placeholder="What's on your mind, Diana ?" id="create-post">
+          <input type="submit" value="Post" class="btn btn-primary">
+        </form>
         <!----------------- FEEDS -------------------->
         <div class="feeds">
           <!----------------- FEED 1 -------------------->
@@ -126,7 +206,7 @@
                 </div>
                 <div class="info">
                   <h3>Lana Rose</h3>
-                  <small>Dubai, 15 Minutes Ago</small>
+                  <small>Dubai, 15 Minutos atrás</small>
                 </div>
               </div>
               <span class="edit">
@@ -153,7 +233,7 @@
               <span><img src="./images/profile-10.jpg"></span>
               <span><img src="./images/profile-4.jpg"></span>
               <span><img src="./images/profile-15.jpg"></span>
-              <p>Liked by <b>Ernest Achiever</b> and <b>2, 323 others</b></p>
+              <p>Ernest Achiever <b>e</b> 323 Outras pessoas <b>curtiram o seu post </b></p>
             </div>
 
             <div class="caption">
@@ -163,7 +243,7 @@
             </div>
 
             <div class="comments text-muted">
-              View all 277 comments
+              Ver todos os 277 comentários
             </div>
           </div>
           <!----------------- END OF FEED 1 -------------------->
@@ -177,7 +257,7 @@
                 </div>
                 <div class="info">
                   <h3>Clara Dwayne</h3>
-                  <small>Miami, 2 Hours Ago</small>
+                  <small>Miami, 2 horas atrás</small>
                 </div>
               </div>
               <span class="edit">
@@ -204,7 +284,7 @@
               <span><img src="./images/profile-11.jpg"></span>
               <span><img src="./images/profile-5.jpg"></span>
               <span><img src="./images/profile-16.jpg"></span>
-              <p>Liked by <b>Diana Rose</b> and <b>2, 323 others</b></p>
+              <p>Diana Rose <b> e </b> 323 outras <b> curtiram o seu post </b></p>
             </div>
 
             <div class="caption">
@@ -216,7 +296,7 @@
             </div>
 
             <div class="comments text-muted">
-              View all 100 comments
+              Ver todos os 100 comentários
             </div>
           </div>
           <!----------------- END OF FEED 2 -------------------->
@@ -230,7 +310,7 @@
                 </div>
                 <div class="info">
                   <h3>Rosalinda Clark</h3>
-                  <small>New York, 50 Minutes Ago</small>
+                  <small>New York, 50 Minutos atrás</small>
                 </div>
               </div>
               <span class="edit">
@@ -271,7 +351,7 @@
             </div>
 
             <div class="comments text-muted">
-              View all 50 comments
+              Ver todos os 50 comentários
             </div>
           </div>
           <!----------------- END OF FEED 3 -------------------->
@@ -285,7 +365,7 @@
                 </div>
                 <div class="info">
                   <h3>Alexandria Riana</h3>
-                  <small>Dubai, 1 Hour Ago</small>
+                  <small>Dubai, 1 hora atrás</small>
                 </div>
               </div>
               <span class="edit">
@@ -312,7 +392,7 @@
               <span><img src="./images/profile-10.jpg"></span>
               <span><img src="./images/profile-4.jpg"></span>
               <span><img src="./images/profile-15.jpg"></span>
-              <p>Liked by <b>Lana Rose</b> and <b>5, 323 others</b></p>
+              <p>Lana Rose <b> e </b> 5, 323 outras <b> curtiram o seu post</b></p>
             </div>
 
             <div class="caption">
@@ -492,7 +572,7 @@
         <!------- MESSAGES ------->
         <div class="messages">
           <div class="heading">
-            <h4>Messages</h4>
+            <h4>Mensagens</h4>
             <i class="uil uil-edit"></i>
           </div>
           <!------- SEARCH BAR ------->
@@ -502,9 +582,9 @@
           </div>
           <!------- MESSAGES CATEGORY ------->
           <div class="category">
-            <h6 class="active">Primary</h6>
-            <h6>General</h6>
-            <h6 class="message-requests">Requests (7)</h6>
+            <h6 class="active">Principal</h6>
+            <h6>Geral</h6>
+            <h6 class="message-requests">Pedidos (7)</h6>
           </div>
           <!------- MESSAGES ------->
           <div class="message">
@@ -555,7 +635,7 @@
             </div>
             <div class="message-body">
               <h5>Keylie Hadid</h5>
-              <p class="text-bold">5 new messages</p>
+              <p class="text-bold">5 novas mensagens</p>
             </div>
           </div>
           <!------- MESSAGES ------->
@@ -573,7 +653,7 @@
 
         <!------- FRIEND REQUEST ------->
         <div class="friend-requests">
-          <h4>Requests</h4>
+          <h4>Pedidos</h4>
           <div class="request">
             <div class="info">
               <div class="profile-photo">
@@ -581,15 +661,15 @@
               </div>
               <div>
                 <h5>Hajia Bintu</h5>
-                <p class="text-muted">8 mutual friends</p>
+                <p class="text-muted">8 amigos em comum</p>
               </div>
             </div>
             <div class="action">
               <button class="btn btn-primary">
-                Accept
+                Aceitar
               </button>
               <button class="btn">
-                Decline
+                Recusar
               </button>
             </div>
           </div>
@@ -600,15 +680,15 @@
               </div>
               <div>
                 <h5>Edelson Mandela</h5>
-                <p class="text-muted">2 mutual friends</p>
+                <p class="text-muted">2 amigos em comum</p>
               </div>
             </div>
             <div class="action">
               <button class="btn btn-primary">
-                Accept
+                Aceitar
               </button>
               <button class="btn">
-                Decline
+                Recusar
               </button>
             </div>
           </div>
@@ -619,15 +699,15 @@
               </div>
               <div>
                 <h5>Megan Baldwin</h5>
-                <p class="text-muted">5 mutual friends</p>
+                <p class="text-muted">5 amigos em comum</p>
               </div>
             </div>
             <div class="action">
               <button class="btn btn-primary">
-                Accept
+                Aceitar
               </button>
               <button class="btn">
-                Decline
+                Recusar
               </button>
             </div>
           </div>
@@ -692,9 +772,7 @@
     </div>
   </div>
 
-  <script src="/js/feed.js"></script>
-
-
+  <script src="./js/feed.js"></script>
 </body>
 
 </html>
