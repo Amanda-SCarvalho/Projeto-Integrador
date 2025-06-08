@@ -7,12 +7,18 @@
 }
 
 body {
+    padding-top: 80px;
     background-color: #fff;
     color: #1a1a1a;
 }
 
 /* Cabeçalho */
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     background-color: #0a1a6d;
     padding: 1rem 2rem;
     display: flex;
@@ -96,10 +102,11 @@ nav a {
 }
 
 .connection-section {
+    display: block;
     background-color: #0a1a6d;
     color: white;
-    flex-direction: column;
     text-align: center;
+    height: 100%;
 }
 
 
@@ -195,21 +202,33 @@ nav a {
 
 .connection-section .options {
     display: flex;
+    align-items: center;
     justify-content: space-around;
-    flex-wrap: wrap;
     margin: 2rem 0;
     gap: 2rem;
     max-width: 1000px;
     width: 100%;
+    margin: auto;
+}
+
+.connection-section .column {
+    display: flex;
+    flex-direction: flex-start;
+    justify-content: space-between;
+    justify-items: space-between;
+}
+
+.column img{
+    width: 36px;
 }
 
 .connection-section .option {
     max-width: 200px;
-    text-align: center;
+    text-align: flex-start;
 }
 
 .connection-section .option p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #e0e0e0;
     margin-top: 0.5rem;
 }
@@ -245,7 +264,7 @@ nav a {
     }
 
     .connection-section .options {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 }

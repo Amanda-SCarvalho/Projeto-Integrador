@@ -17,24 +17,23 @@
                     <input type="email"  placeholder="Email">
                     <input type="password" placeholder="Nova senha">
                     <input type="password" placeholder="Confirme sua senha">
-                    <span>Ou entre com sua conta</span>>
-                
-            <div class="social-icons">
-                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-            </div>
+                    
+                    <div class="checkbox-container">
+                        Tipo:
+                        <input name="tipo" type="radio" value="atleta" id="atleta">
+                        <label for="atleta">Atleta</label>
+                        <input name="tipo" type="radio" value="apoiador" id="apoiador">
+                        <label for="apoiador">Apoiador</label>
+                    </div>
+        
+                    <div class="terms-container">
+                        <input type="checkbox" id="terms">
+                        <span>*Li e Concordo com os <a href="#">termos</a>.</span>
+                    </div>
+                    <button class="submit-btn">Cadastrar</button>
+            
 
-                <div class ="checkbox-container">
-                    Tipo:
-                    <input name="tipo" type="radio" value="atleta" id="atleta">
-                    <label for="atleta">Atleta</label>
-                    <input name="tipo" type="radio" value="apoiador" id="apoiador">
-                    <label for="apoiador">apoiador</label>
-                </div>
 
-                <input type="checkbox" id="terms">
-                <span>*Li e Concordo com os <a href="#">termos</a>.</span>
-                <button>Cadastrar</button>
             </form>
         </div>
         <div class="form-container sign-in">
@@ -47,20 +46,20 @@
                 <span></span>
                 <input type="email" placeholder="Nome de usuário ou Email">
                 <input type="password" placeholder="Senha">
-                <button>Entrar</button>
+                <button type="button" onclick="window.location.href='feed.html'">Entrar</button>
                 <a href="#">Esqueci minha senha</a>
             </form>
         </div>
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <h1>Bem vindo!</h1>
-                    <p>texto chamativo para fazer login</p>
+                    <h1>Bem vindo de volta!</h1>
+                    <p>Clique aqui para entrar</p>
                     <button class="hidden" id="login">Entrar</button>
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>Crie sua conta</h1>
-                    <p>tenha acesso a todo o nosso conteudo</p>
+                    <p>Realize seu cadastro e tenha acesso a todo o nosso conteudo</p>
                     <button class="hidden" id="register">Cadastrar</button>
                 </div>
             </div>

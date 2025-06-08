@@ -26,18 +26,19 @@ body{
     overflow: hidden;
     width: 80%;
     max-width: 100%;
-    min-height: 980px;
+    min-height: 85%;
 }
 
 .container p {
-    font-size: 14px;
+    font-size: 20px;
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;
 }
 
 .container span{
-    font-size: 14px;
+    
+    font-size: 13px;
 }
 
 .container a{
@@ -206,4 +207,69 @@ body{
 
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+
+
+.checkbox-container {
+    background: #eee;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.checkbox-container input[type="radio"] {
+    accent-color: #0023a0; /* azul escuro */
+    margin-left: 8px;
+    margin-right: 4px;
+}
+
+.terms-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #222;
+    margin: 10px 0 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.terms-container input[type="checkbox"] {
+    accent-color: #0023a0;
+    width: 16px;
+    height: 16px;
+}
+
+.terms-container a {
+    color: #0056d2;
+    text-decoration: none;
+}
+
+.terms-container a:hover {
+    text-decoration: underline;
+}
+
+.submit-btn {
+    background-color: #0023a0;
+    color: #eee;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #001c80;
 }
