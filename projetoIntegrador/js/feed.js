@@ -31,14 +31,14 @@ menuItems.forEach(item => {
     item.addEventListener('click', () => {
         changeActiveItem();
         item.classList.add('active');
-        if(item.id != 'notifications') {
+        if (item.id != 'notifications') {
             document.querySelector('.notifications-popup').
-            style.display = 'none';
+                style.display = 'none';
         } else {
             document.querySelector('.notifications-popup').
-            style.display = 'block';
+                style.display = 'block';
             document.querySelector('#notifications .notification-count').
-            style.display = 'none';
+                style.display = 'none';
         }
     })
 })
@@ -50,8 +50,8 @@ const searchMessage = () => {
     const val = messageSearch.value.toLowerCase();
     message.forEach(user => {
         let name = user.querySelector('h5').textContent.toLowerCase();
-        if(name.indexOf(val) != -1) {
-            user.style.display = 'flex'; 
+        if (name.indexOf(val) != -1) {
+            user.style.display = 'flex';
         } else {
             user.style.display = 'none';
         }
@@ -79,7 +79,7 @@ const openThemeModal = () => {
 
 // Closes Modal
 const closeThemeModal = (e) => {
-    if(e.target.classList.contains('customize-theme')) {
+    if (e.target.classList.contains('customize-theme')) {
         themeModal.style.display = 'none';
     }
 }
@@ -97,29 +97,29 @@ const removeSizeSelectors = () => {
     })
 }
 
-fontSize.forEach(size => { 
-   size.addEventListener('click', () => {
+fontSize.forEach(size => {
+    size.addEventListener('click', () => {
         removeSizeSelectors();
         let fontSize;
         size.classList.toggle('active');
 
-        if(size.classList.contains('font-size-1')) { 
+        if (size.classList.contains('font-size-1')) {
             fontSize = '10px';
             root.style.setProperty('----sticky-top-left', '5.4rem');
             root.style.setProperty('----sticky-top-right', '5.4rem');
-        } else if(size.classList.contains('font-size-2')) { 
+        } else if (size.classList.contains('font-size-2')) {
             fontSize = '13px';
             root.style.setProperty('----sticky-top-left', '5.4rem');
             root.style.setProperty('----sticky-top-right', '-7rem');
-        } else if(size.classList.contains('font-size-3')) {
+        } else if (size.classList.contains('font-size-3')) {
             fontSize = '16px';
             root.style.setProperty('----sticky-top-left', '-2rem');
             root.style.setProperty('----sticky-top-right', '-17rem');
-        } else if(size.classList.contains('font-size-4')) {
+        } else if (size.classList.contains('font-size-4')) {
             fontSize = '19px';
             root.style.setProperty('----sticky-top-left', '-5rem');
             root.style.setProperty('----sticky-top-right', '-25rem');
-        } else if(size.classList.contains('font-size-5')) {
+        } else if (size.classList.contains('font-size-5')) {
             fontSize = '22px';
             root.style.setProperty('----sticky-top-left', '-12rem');
             root.style.setProperty('----sticky-top-right', '-35rem');
@@ -127,7 +127,7 @@ fontSize.forEach(size => {
 
         // change font size of the root html element
         document.querySelector('html').style.fontSize = fontSize;
-   })
+    })
 })
 
 // Remove active class from colors
@@ -140,23 +140,21 @@ const changeActiveColorClass = () => {
 // Change color primary
 colorPalette.forEach(color => {
     color.addEventListener('click', () => {
-        let primary;
-        changeActiveColorClass(); 
+        changeActiveColorClass();
 
-        if(color.classList.contains('color-1')) {
-            primaryHue = 252;
-        } else if(color.classList.contains('color-2')) {
-            primaryHue = 52;
-        } else if(color.classList.contains('color-3')) {
-            primaryHue = 352;
-        } else if(color.classList.contains('color-4')) {
-            primaryHue = 152;
-        } else if(color.classList.contains('color-5')) {
-            primaryHue = 202;
+        if (color.classList.contains('color-1')) {
+            root.style.setProperty('--primary-color-hue', 340);
+        } else if (color.classList.contains('color-2')) {
+            root.style.setProperty('--primary-color-hue', 52);
+        } else if (color.classList.contains('color-3')) {
+            root.style.setProperty('--primary-color-hue', 352);
+        } else if (color.classList.contains('color-4')) {
+            root.style.setProperty('--primary-color-hue', 152);
+        } else if (color.classList.contains('color-5')) {
+            root.style.setProperty('--primary-color-hue', 202);
         }
 
         color.classList.add('active');
-        root.style.setProperty('--primary-color-hue', primaryHue);
     })
 })
 
