@@ -12,20 +12,10 @@ const theme = document.querySelector('#theme');
 const themeModal = document.querySelector('.customize-theme');
 const fontSize = document.querySelectorAll('.choose-size span');
 var root = document.querySelector(':root');
-const colorPalette = document.querySelectorAll('.choose-color span');
 const Bg1 = document.querySelector('.bg-1');
 const Bg2 = document.querySelector('.bg-2');
 const Bg3 = document.querySelector('.bg-3');
 
-
-// ============== SIDEBAR ============== 
-
-// Remove active class from all menu items
-const changeActiveItem = () => {
-    menuItems.forEach(item => {
-        item.classList.remove('active');
-    })
-}
 
 menuItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -137,26 +127,7 @@ const changeActiveColorClass = () => {
     })
 }
 
-// Change color primary
-colorPalette.forEach(color => {
-    color.addEventListener('click', () => {
-        changeActiveColorClass();
 
-        if (color.classList.contains('color-1')) {
-            root.style.setProperty('--primary-color-hue', 340);
-        } else if (color.classList.contains('color-2')) {
-            root.style.setProperty('--primary-color-hue', 52);
-        } else if (color.classList.contains('color-3')) {
-            root.style.setProperty('--primary-color-hue', 352);
-        } else if (color.classList.contains('color-4')) {
-            root.style.setProperty('--primary-color-hue', 152);
-        } else if (color.classList.contains('color-5')) {
-            root.style.setProperty('--primary-color-hue', 202);
-        }
-
-        color.classList.add('active');
-    })
-})
 
 //Theme Background Values
 let lightColorLightness;

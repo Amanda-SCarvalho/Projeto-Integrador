@@ -4,16 +4,16 @@
 :root {
 
     --primary-color-hue: 252;
-    --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
+    --color-primary: #001077;
     --dark-color-lightness: 17%;
     --white-color-lightness: 100%;
     --light-color-lightness: 95%;
 
     --color-white: hsl(252, 30%, var(--white-color-lightness));
     --color-light: hsl(252, 30%, var(--light-color-lightness));
-    --color-grey: hsl(252, 15%, 65%);
-    --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
-    --color-secondary: hsl(252, 100%, 90%);
+    --color-grey: hsl(0, 0%, 92%);
+    --color-primary: #001077;
+    --color-secondary: hsl(252, 5%, 39%);
     --color-success: hsl(120, 95%, 65%);
     --color-danger: hsl(0, 95%, 65%);
     --color-dark: hsl(252, 30%, var(--dark-color-lightness));
@@ -83,7 +83,7 @@ img {
 
 .btn-primary {
     background: var(--color-primary);
-    color: var(--color-white);
+    color: white;
 }
 
 .text-bold {
@@ -91,7 +91,7 @@ img {
 }
 
 .text-muted {
-    color: var(--color-grey);
+    color: white
 }
 
 /* =============== Navbar ============== */
@@ -122,11 +122,11 @@ nav .container {
     width: 30vw;
     margin-left: 1rem;
     font-size: 0.9rem;
-    color: var(--color-dark);
+    color: var(--color-white);
 }
 
 nav .search-bar input[type="search"]::placeholder {
-    color: var(--color-grey);
+    color: var(--color-white);
 }
 
 nav .create {
@@ -601,49 +601,6 @@ main .container .right {
     background: var(--color-primary);
 }
 
-/* =============== Color ============== */
-.customize-theme .color {
-    margin-top: 2rem;
-}
-
-.customize-theme .choose-color {
-    background: var(--color-light);
-    padding: var(--search-padding);
-    border-radius: var(--card-border-radius);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.customize-theme .choose-color span {
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 50%;
-}
-
-.customize-theme .choose-color span:nth-child(1) {
-    background: #0a1a6d;
-}
-
-.customize-theme .choose-color span:nth-child(2) {
-    background: hsl(52, 75%, 60%);
-}
-
-.customize-theme .choose-color span:nth-child(3) {
-    background: hsl(352, 75%, 60%);
-}
-
-.customize-theme .choose-color span:nth-child(4) {
-    background: hsl(152, 75%, 60%);
-}
-
-.customize-theme .choose-color span:nth-child(5) {
-    background: hsl(202, 75%, 60%);
-}
-
-.customize-theme .choose-color span.active {
-    border: 5px solid var(--color-secondary);
-}
 
 /* =============== Background ============== */
 .customize-theme .background {
@@ -684,7 +641,7 @@ main .container .right {
 
 .customize-theme .choose-bg .bg-3 {
     background: hsl(252, 30%, 10%);
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .customize-theme .choose-bg>div span {
