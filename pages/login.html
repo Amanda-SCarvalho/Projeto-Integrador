@@ -1,70 +1,93 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/login.css">
-    <title>Entre ou Cadastre-se</title>
+
+    <title>Login Page</title>
 </head>
 
 <body>
+
+    <div class="particles" id="particles"></div>
     <div class="container" id="container">
-        <div class="form-container sign-up">
+        <div class="form-container sign-up active">
             <form>
                 <h1>Criar Conta</h1>
-                <input type="text" placeholder="Nome completo">
-                    <input type="email"  placeholder="Email">
-                    <input type="password" placeholder="Nova senha">
-                    <input type="password" placeholder="Confirme sua senha">
-                    
-                    <div class="checkbox-container">
-                        Tipo:
-                        <input name="tipo" type="radio" value="atleta" id="atleta">
-                        <label for="atleta">Atleta</label>
-                        <input name="tipo" type="radio" value="apoiador" id="apoiador">
-                        <label for="apoiador">Apoiador</label>
-                    </div>
-        
-                    <div class="terms-container">
-                        <input type="checkbox" id="terms">
-                        <span>*Li e Concordo com os <a href="#">termos</a>.</span>
-                    </div>
-                    <button class="submit-btn">Cadastrar</button>
-            
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>ou use seu email para cadastro</span>
+                <input type="text" placeholder="Nome" id="nome">
+                <input type="email" placeholder="Email" id="emailCadastro">
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="perfil" value="atleta">
+                        <span></span> Atleta
+                    </label>
+                    <label>
+                        <input type="radio" name="perfil" value="apoiador">
+                        <span></span> Apoiador
+                    </label>
+                </div>
 
+                <input type="password" placeholder="Senha" id="senhaCadastro">
+                <input type="password" placeholder="Confirme a senha" id="confirmaSenhaCadastro">
 
+                <p class="mobile-text">
+                    Já tem conta?
+                    <a href="#" id="open-login-mobile">Login</a>
+                </p>
+
+                <button>Inscrever</button>
             </form>
         </div>
-        <div class="form-container sign-in">
+        <div class="form-container sign-in ">
             <form>
                 <h1>Entrar</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <span></span>
-                <input type="email" placeholder="Nome de usuário ou Email">
-                <input type="password" placeholder="Senha">
-                <button type="button" onclick="window.location.href='feed.html'">Entrar</button>
-                <a href="#">Esqueci minha senha</a>
+                <span>ou use sua senha de email</span>
+                <input type="email" placeholder="Email" id="emailLogin">
+                <input type="password" placeholder="Senha" id="senhaLogin">
+
+                <a href="#" class="form-link">Esqueceu a senha?</a>
+
+                <button>Entrar</button>
+
+                <p class="mobile-text">
+                    Não tem conta?
+                    <a href="#" id="open-register-mobile">Registre-se</a>
+                </p>
             </form>
         </div>
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
                     <h1>Bem vindo de volta!</h1>
-                    <p>Clique aqui para entrar</p>
+                    <p>Insira seus dados pessoais para usar todos os recursos do site</p>
                     <button class="hidden" id="login">Entrar</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <h1>Crie sua conta</h1>
-                    <p>Realize seu cadastro e tenha acesso a todo o nosso conteudo</p>
-                    <button class="hidden" id="register">Cadastrar</button>
+                    <h1>Olá, amigo!</h1>
+                    <p>Registre-se com seus dados pessoais para usar todos os recursos do site</p>
+                    <button class="hidden" id="register">Inscrever</button>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="../js/login.js"></script>
 </body>
+
 </html>
