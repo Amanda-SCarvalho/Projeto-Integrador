@@ -228,6 +228,12 @@ header.scrolled {
     margin: 5px;
 }
 
+.atleta-foto{
+    border-radius: 100px;
+    box-shadow: var(--shadow-card);
+    
+}
+
 /* Footer */
 .footer {
     background-color: #07124f;

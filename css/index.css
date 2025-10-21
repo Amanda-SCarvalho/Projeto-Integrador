@@ -507,7 +507,7 @@ footer {
     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
 }
 
-.btn-login:hover, 
+.btn-login:hover,
 .btn-cadastrar:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
@@ -592,7 +592,7 @@ footer {
     }
 
     .nav-links .btn-login,
-    .nav-links .btn-cadastrar{
+    .nav-links .btn-cadastrar {
         display: none;
     }
 
@@ -630,14 +630,19 @@ footer {
         justify-content: center;
     }
 
+    .nav-links .btn-login,
+    .nav-links .btn-cadastrar{
+        color: var(--surface);
+        padding: 5px 10px;
+    }
+
     .menu-toggle:hover {
         background: var(--primary);
         color: white;
         border-color: var(--primary);
     }
 
-    /* Esconde menus por padrão */
-    .nav-links{
+    .nav-links {
         flex-direction: column;
         gap: 15px;
         background: var(--surface);
@@ -654,7 +659,7 @@ footer {
         transition: all 0.3s ease;
     }
 
-    .nav-links.active{
+    .nav-links.active {
         display: flex;
         opacity: 1;
         visibility: visible;
@@ -662,7 +667,7 @@ footer {
         margin-top: 60px;
     }
 
-    #menu-toggle-links{
+    #menu-toggle-links {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -677,7 +682,7 @@ footer {
         z-index: 1002;
     }
 
-    #menu-toggle-links:hover{
+    #menu-toggle-links:hover {
         background: var(--primary);
         color: #fff;
         border-color: var(--primary);
@@ -691,7 +696,7 @@ footer {
         display: none;
     }
 
-    .nav-links .btn-login .btn-cadastrar{
+    .nav-links .btn-login .btn-cadastrar {
         color: var(--accent);
         text-decoration: none;
         font-weight: 500;
@@ -699,19 +704,80 @@ footer {
         position: relative;
         padding: 8px;
     }
-}
 
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2rem;
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
     }
 
-    .section-title {
-        font-size: 2rem;
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--surface, #fff);
+        flex-direction: column;
+        width: 200px;
+        padding: 1rem;
+        box-shadow: var(--shadow, 0 2px 6px rgba(0, 0, 0, 0.2));
+        display: none;
+        border-radius: 8px;
     }
 
-    .card,
-    .atleta-card {
-        padding: 1.5rem;
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .card,
+        .atleta-card {
+            padding: 1.5rem;
+        }
+    }
+
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        color: var(--primary);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-toggle.open i {
+        transform: rotate(90deg);
+    }
+
+    /* Estilo base do menu */
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: var(--text-color, #333);
+        transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+        color: var(--primary);
     }
 }
