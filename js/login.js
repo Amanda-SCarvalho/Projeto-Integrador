@@ -3,11 +3,11 @@ const btnRegister = document.getElementById("register");
 const btnLogin = document.getElementById("login");
 
 btnRegister.addEventListener("click", () => {
-  container.classList.add("active"); // mostra o cadastro
+  container.classList.add("active");
 });
 
 btnLogin.addEventListener("click", () => {
-  container.classList.remove("active"); // volta pro login
+  container.classList.remove("active");
 });
 const formCadastro = document.querySelector(".sign-up form");
 
@@ -54,7 +54,7 @@ formLogin.addEventListener("submit", (ev) => {
 
   if (usuario.email === email && usuario.senha === senha) {
     alert(`Bem-vindo, ${usuario.nome}!`);
-    window.location.href = "profile.html"; // redireciona
+    window.location.href = "perfil.html"; 
   } else {
     alert("Email ou senha incorretos!");
   }

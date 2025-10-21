@@ -2,152 +2,175 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre Nós - Conecta Atleta</title>
-  <link rel="stylesheet" href="./css/sobre.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Nós - Conecta Atleta</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/sobre.css" />
 </head>
 
 <body>
 
-  <!-- Header personalizado -->
-  <header>
-    <div class="logo">Conecta Atleta</div>
-    <nav>
-      <a href="./index.html">Início Rápido</a>
-      <a href="#sobre">Sobre Nós</a>
-      <a href="#atletas">Atletas Destaque</a>
-      <button class="btn btn-entrar" onclick="window.location.href='login.html'">Entrar</button>
-      <button class="btn btn-registrar" onclick="window.location.href='login.html'">Cadastrar</button>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-briefcase"></i> Conecta Atleta
+            </div>
 
-  <!-- Main Content -->
-  <main id="sobre" class="max-w-5xl mx-auto px-6 py-12">
-    <h2 class="text-4xl font-bold text-center mb-6" style="color: #07124f">Sobre Nós</h2>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="#atletas">Atletas em Destaque</a></li>
+                    <li><a href="../pages/login.html" class="btn-login">
+                            <i class="fas fa-user"></i> Login
+                        </a></li>
+                    <li><a href="../pages/login.html" class="btn-cadastrar">
+                            <i class="fas fa-user"></i> Cadastre-se
+                        </a></li>
+                </ul>
+            </nav>
 
-    <p class="text-lg mb-6 text-justify">
-      O esporte sempre foi uma poderosa ferramenta de transformação social. Ele une pessoas, promove saúde, desenvolve
-      talentos e inspira sonhos. No entanto, muitos atletas, especialmente aqueles vindos de comunidades menos
-      favorecidas, enfrentam obstáculos significativos para seguir sua trajetória esportiva. A falta de patrocínio e
-      visibilidade os impede de alcançar seu verdadeiro potencial.
-    </p>
+            <div class="auth-buttons">
+                <a href="../pages/login.html" class="btn-login">
+                    <i class="fas fa-user"></i> Login
+                </a>
+                <a href="../pages/login.html" class="btn-cadastrar">
+                    <i class="fas fa-user"></i> Cadastre-se
+                </a>
+            </div>
 
-    <p class="text-lg mb-6 text-justify">
-      Em momentos como as Olimpíadas, essa realidade fica ainda mais evidente. Enquanto alguns atletas contam com
-      grandes estruturas e investimentos, outros lutam para se manter em atividade. Foi pensando nisso que surgiu a
-      nossa iniciativa: <strong>uma plataforma de patrocínio popular para atletas da comunicação</strong>, com o
-      objetivo de democratizar o acesso ao esporte e promover a inclusão.
-    </p>
-
-    <h3 class="text-2xl font-semibold mt-10 mb-3" style="color: #07124f">Nossa Missão</h3>
-    <p class="text-lg mb-6 text-justify">
-      Conectar atletas, fãs e patrocinadores em um espaço único, onde histórias inspiradoras possam ser compartilhadas,
-      talentos valorizados e oportunidades ampliadas.
-    </p>
-
-    <h3 class="text-2xl font-semibold mt-10 mb-3" style="color: #07124f">Tipos de Patrocínio</h3>
-    <ul class="list-disc pl-6 mb-6 text-lg">
-      <li><strong>Patrocínios Diretos:</strong> Empresas apoiam atletas ou projetos específicos.</li>
-      <li><strong>Vaquinhas Populares:</strong> Apoios em valores menores vindos dos fãs.</li>
-      <li><strong>Crowdfunding para Projetos:</strong> Financiamento para competições, equipamentos e conteúdo.</li>
-    </ul>
-
-    <h3 class="text-2xl font-semibold mt-10 mb-3 " style="color: #07124f">ODS e Impacto</h3>
-    <ul class="list-disc pl-6 mb-6 text-lg">
-      <li><strong>ODS 10:</strong> Redução das desigualdades com mais acesso e visibilidade.</li>
-      <li><strong>ODS 17:</strong> Parcerias entre atletas, fãs e empresas.</li>
-      <li><strong>ODS 8:</strong> Renda digna e valorização da carreira esportiva.</li>
-    </ul>
-
-    <div class="bg-blue-100 p-6 rounded-xl text-center shadow-md mt-10">
-      <p class="text-xl font-medium">Juntos podemos mudar o jogo. Bem-vindo à plataforma que conecta sonhos à realidade!
-      </p>
-    </div>
-  </main>
-
-  <!-- Atletas em Destaque -->
-  <section id="atletas" class="bg-white py-12">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-10" style="color: #07124f">Atletas em Destaque</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="bg-blue-50 rounded-2xl shadow p-4 text-center">
-          <img src="./images/profile-8.jpg" alt="Atleta 1" class="rounded-full mx-auto mb-4">
-          <h3 class="text-lg font-semibold" style="color: #07124f">João Silva</h3>
-          <p class="text-sm text-gray-600 mb-2">Corredor - RJ</p>
-          <button class="bg-[#07124f] text-white px-4 py-2 rounded-full text-sm hover:bg-[#0a1a6d]">Apoiar</button>
+            <button id="menu-toggle-links" class="menu-toggle" aria-label="Abrir/fechar menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <!-- Card 2 -->
-        <div class="bg-blue-50 rounded-2xl shadow p-4 text-center">
-          <img src="./images/profile-5.jpg" alt="Atleta 2" class="rounded-full mx-auto mb-4">
-          <h3 class="text-lg font-semibold " style="color: #07124f">Maria Oliveira</h3>
-          <p class="text-sm text-gray-600 mb-2">Ginasta - SP</p>
-          <button class="bg-[#07124f] text-white px-4 py-2 rounded-full text-sm hover:bg-[#0a1a6d]">Apoiar</button>
+    </header>
+
+    <!-- Sobre Nós -->
+    <main id="sobre" class="sobre-container">
+        <h2 class="titulo-principal">Sobre Nós</h2>
+
+        <p class="texto-padrao">
+            O esporte sempre foi uma poderosa ferramenta de transformação social. Ele une pessoas, promove saúde,
+            desenvolve talentos e inspira sonhos. No entanto, muitos atletas, especialmente aqueles vindos de comunidades menos
+            favorecidas, enfrentam obstáculos significativos para seguir sua trajetória esportiva. A falta de patrocínio
+            e visibilidade os impede de alcançar seu verdadeiro potencial.
+        </p>
+
+        <p class="texto-padrao">
+            Em momentos como as Olimpíadas, essa realidade fica ainda mais evidente. Enquanto alguns atletas contam com
+            grandes estruturas e investimentos, outros lutam para se manter em atividade. Foi pensando nisso que surgiu
+            a nossa iniciativa: <strong>uma plataforma de patrocínio popular para atletas da comunicação</strong>, com o
+            objetivo de democratizar o acesso ao esporte e promover a inclusão.
+        </p>
+
+        <h3 class="subtitulo">Nossa Missão</h3>
+        <p class="texto-padrao">
+            Conectar atletas, fãs e patrocinadores em um espaço único, onde histórias inspiradoras possam ser
+            compartilhadas, talentos valorizados e oportunidades ampliadas.
+        </p>
+
+        <h3 class="subtitulo">Tipos de Patrocínio</h3>
+        <ul class="lista-patrocinio">
+            <li><strong>Patrocínios Diretos:</strong> Empresas apoiam atletas ou projetos específicos.</li>
+            <li><strong>Vaquinhas Populares:</strong> Apoios em valores menores vindos dos fãs.</li>
+            <li><strong>Crowdfunding para Projetos:</strong> Financiamento para competições, equipamentos e conteúdo.</li>
+        </ul>
+
+        <h3 class="subtitulo">ODS e Impacto</h3>
+        <ul class="lista-patrocinio">
+            <li><strong>ODS 10:</strong> Redução das desigualdades com mais acesso e visibilidade.</li>
+            <li><strong>ODS 17:</strong> Parcerias entre atletas, fãs e empresas.</li>
+            <li><strong>ODS 8:</strong> Renda digna e valorização da carreira esportiva.</li>
+        </ul>
+
+        <div class="mensagem-final">
+            <p>Juntos podemos mudar o jogo. Bem-vindo à plataforma que conecta sonhos à realidade!</p>
         </div>
-        <!-- Card 3 -->
-        <div class="bg-blue-50 rounded-2xl shadow p-4 text-center">
-          <img src="./images/profile-11.jpg" alt="Atleta 3" class="rounded-full mx-auto mb-4">
-          <h3 class="text-lg font-semibold " style="color: #07124f">Lucas Pereira</h3>
-          <p class="text-sm text-gray-600 mb-2">Nadador - BA</p>
-          <button class="bg-[#07124f] text-white px-4 py-2 rounded-full text-sm hover:bg-[#0a1a6d]">Apoiar</button>
+    </main>
+
+    <!-- Atletas em Destaque -->
+    <section id="atletas" class="atletas-destaque">
+        <div class="atletas-container">
+            <h2 class="titulo-principal">Atletas em Destaque</h2>
+            <div class="atletas-grid">
+                <!-- Card 1 -->
+                <div class="atleta-card">
+                    <img src="./images/profile-8.jpg" alt="Atleta 1" class="atleta-foto">
+                    <h3 class="atleta-nome">João Silva</h3>
+                    <p class="atleta-local">Corredor - RJ</p>
+                    <button class="btn-apoio">Apoiar</button>
+                </div>
+                <!-- Card 2 -->
+                <div class="atleta-card">
+                    <img src="./images/profile-5.jpg" alt="Atleta 2" class="atleta-foto">
+                    <h3 class="atleta-nome">Maria Oliveira</h3>
+                    <p class="atleta-local">Ginasta - SP</p>
+                    <button class="btn-apoio">Apoiar</button>
+                </div>
+                <!-- Card 3 -->
+                <div class="atleta-card">
+                    <img src="./images/profile-11.jpg" alt="Atleta 3" class="atleta-foto">
+                    <h3 class="atleta-nome">Lucas Pereira</h3>
+                    <p class="atleta-local">Nadador - BA</p>
+                    <button class="btn-apoio">Apoiar</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer personalizado -->
-  <section class="footer">
-    <div class="footer-newsletter">
-      <h3>Conecta Atleta</h3>
-      <p>Inscreva-se em nossa newsletter para ficar por dentro das novidades e lançamentos.</p>
-      <input type="email" placeholder="Digite seu e-mail">
-      <button class="btn btn-news">Inscrever</button>
-      <small>Ao se inscrever, você concorda com nossa Política de Privacidade e recebe atualizações.</small>
-    </div>
+    <!-- Footer -->
+    <section class="footer">
+        <div class="footer-newsletter">
+            <h3>Conecta Atleta</h3>
+            <p>Inscreva-se em nossa newsletter para ficar por dentro das novidades e lançamentos.</p>
+            <input type="email" placeholder="Digite seu e-mail">
+            <button class="btn btn-news">Inscrever</button>
+            <small>Ao se inscrever, você concorda com nossa Política de Privacidade e recebe atualizações.</small>
+        </div>
 
-    <div class="footer-links">
-      <div>
-        <h4>Coluna Um</h4>
-        <ul>
-          <li>Link Um</li>
-          <li>Link Dois</li>
-          <li>Link Três</li>
-          <li>Link Quatro</li>
-          <li>Link Cinco</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Coluna Dois</h4>
-        <ul>
-          <li>Link Seis</li>
-          <li>Link Sete</li>
-          <li>Link Oito</li>
-          <li>Link Nove</li>
-          <li>Link Dez</li>
-        </ul>
-      </div>
-      <div class="social">
-        <h4>Siga-nos</h4>
-        <ul>
-          <li>Facebook</li>
-          <li>Instagram</li>
-          <li>LinkedIn</li>
-          <li>YouTube</li>
-        </ul>
-      </div>
-    </div>
+        <div class="footer-links">
+            <div>
+                <h4>Coluna Um</h4>
+                <ul>
+                    <li>Link Um</li>
+                    <li>Link Dois</li>
+                    <li>Link Três</li>
+                    <li>Link Quatro</li>
+                    <li>Link Cinco</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Coluna Dois</h4>
+                <ul>
+                    <li>Link Seis</li>
+                    <li>Link Sete</li>
+                    <li>Link Oito</li>
+                    <li>Link Nove</li>
+                    <li>Link Dez</li>
+                </ul>
+            </div>
+            <div class="social">
+                <h4>Siga-nos</h4>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+                    <li>LinkedIn</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+        </div>
 
-    <div class="footer-bottom">
-      <p>© 2025 Reaume. Todos os direitos reservados.</p>
-      <ul>
-        <li>Política de Privacidade</li>
-        <li>Termos de Serviço</li>
-        <li>Configurações de Cookies</li>
-      </ul>
-    </div>
-  </section>
+        <div class="footer-bottom">
+            <p>© 2025 Reaume. Todos os direitos reservados.</p>
+            <ul>
+                <li>Política de Privacidade</li>
+                <li>Termos de Serviço</li>
+                <li>Configurações de Cookies</li>
+            </ul>
+        </div>
+    </section>
 
 </body>
 
