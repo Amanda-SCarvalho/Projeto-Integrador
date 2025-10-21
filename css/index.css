@@ -735,6 +735,8 @@ footer {
         display: none;
     }
 
+}
+
     @media (max-width: 480px) {
         .hero h1 {
             font-size: 2rem;
@@ -780,4 +782,3 @@ footer {
     .nav-links li a:hover {
         color: var(--primary);
     }
-}

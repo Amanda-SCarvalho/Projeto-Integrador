@@ -231,7 +231,7 @@ header.scrolled {
 .atleta-foto{
     border-radius: 100px;
     box-shadow: var(--shadow-card);
-    
+
 }
 
 /* Footer */
@@ -316,6 +316,8 @@ header.scrolled {
     .nav-links .btn-cadastrar {
         display: none;
     }
+
+    
 
 }
 
