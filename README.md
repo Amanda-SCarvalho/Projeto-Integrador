@@ -2,7 +2,7 @@
 
 ![Logo Conecta Atleta](assets/logo.png)
 
-🔗 [Acesse o site aqui](#)
+🔗 [Acesse o site aqui](https://amanda-scarvalho.github.io/Projeto-Integrador/)
 
 > Conecte atletas a patrocinadores e apoie o desenvolvimento de talentos esportivos.
 
