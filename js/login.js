@@ -30,33 +30,86 @@ formCadastro.addEventListener("submit", async(ev) => {
     return;
   }
 
-  const usuario = { nome, email, senha, perfil: perfil.value };
+  const dadosUsuario = {
+    nome: nome,
+    email: email,
+    senha: senha,
+    tipoUsuario: perfil.value
+  };
 
-  localStorage.setItem("usuario", JSON.stringify(usuario));
+  try {
+    const response = await fetch("http://localhost:8080/api/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(dadosUsuario)
+    });
 
-  alert("Cadastro realizado com sucesso!");
-  container.classList.remove("active"); // volta pro login
+    if (response.ok) {
+      const usuarioSalvo = await response.json();
+      console.log("Usuário cadastrado com sucesso:", usuarioSalvo);
+
+      alert("Usuário cadastrado com sucesso!");
+      container.classList.remove("active"); // volta pro login
+    } else {
+      alert("Erro ao cadastrar. O email pode já estar em uso.");
+    }
+
+  }catch (erro) {
+    console.error("Erro na requisição:", erro);
+  }
 });
+
+
 const formLogin = document.querySelector(".sign-in form");
 
-formLogin.addEventListener("submit", (ev) => {
+formLogin.addEventListener("submit", async (ev) => {
   ev.preventDefault();
 
   const email = document.getElementById("emailLogin").value.trim();
   const senha = document.getElementById("senhaLogin").value;
 
-  const usuario = JSON.parse(localStorage.getItem("usuario"));
-
-  if (!usuario) {
-    alert("Nenhum usuário cadastrado!");
+  if (!email || !senha) {
+    alert("Preencha todos os campos!");
     return;
   }
+  
+  //Cria o Packet de Requisição la no Beck
+  const loginRequest = {
+    email: email,
+    senha: senha
+  };
+  
+  try {
+    const response = await fetch('http://localhost:8080/api/usuarios/login', {
+      method:'POST',
+      headers: {
+        'Content-Type': 'appLication/json'
+      },
+      body: JSON.stringify(loginRequest)
+    });
 
-  if (usuario.email === email && usuario.senha === senha) {
-    alert(`Bem-vindo, ${usuario.nome}!`);
-    window.location.href = "perfil.html"; 
-  } else {
-    alert("Email ou senha incorretos!");
+    if (response.ok) {
+      const usuarioLogado = await response.json(); 
+      alert(`Bem-vindo, ${usuarioLogado.nome}!`);
+
+      localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+
+      //redirec pro perfil do usuario
+      window.location.href = "perfil.html";
+
+    } else if (response.status === 401) {
+      //findByEmail não achou, ValidaSenha errado!! Display do erro 401
+      alert("email ou senha incorretos!");
+
+    } else {
+      alert("Erro ao tentar fazer login. Verifique suas informaçãoes ou cadastre-se")
+    }
+
+  } catch (error) {
+    console.error('Erro de rede:', error);
+    alert('não foi possivel conectar-se ao servidor!')
   }
 });
 
