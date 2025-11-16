@@ -11,7 +11,7 @@ btnLogin.addEventListener("click", () => {
 });
 const formCadastro = document.querySelector(".sign-up form");
 
-formCadastro.addEventListener("submit", (ev) => {
+formCadastro.addEventListener("submit", async(ev) => {
   ev.preventDefault();
 
   const nome = document.getElementById("nome").value.trim();
