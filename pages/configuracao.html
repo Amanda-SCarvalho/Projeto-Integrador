@@ -113,33 +113,22 @@
                             <h6 class="mb-3" name="about.title">Sobre</h6>
                             <ul class="list-unstyled mb-0" name="about.list">
                                 <li class="d-flex align-items-center gap-2" name="about.item.sports">
-                                    <i
-                                        class="bi bi-trophy"></i> Futebol | Vôlei | Basquete
-                                </li>
-                                <li class="d-flex align-items-center gap-2" name="about.item.gender">
-                                    <i
-                                        class="bi bi-gender-male"></i> Male
-                                </li>
-                                <li class="d-flex align-items-center gap-2" name="about.item.birthday">
-                                    <i
-                                        class="bi bi-cake"></i> 15 / 05 / 2005
-                                </li>
-                                <li class="d-flex align-items-center gap-2" name="about.item.location">
-                                    <i
-                                        class="bi bi-geo-alt"></i> São Paulo - SP
-                                </li>
+                                    <ul class="list-unstyled mb-0" name="about.list">
                                 <li class="d-flex align-items-center gap-2" name="about.item.email">
-                                    <i
-                                        class="bi bi-envelope"></i> charles5182@ummoh.com
+                                    <i class="bi bi-envelope"></i> 
+                                    <span id="perfil-email">carregando...</span>
                                 </li>
-                                <li class="d-flex align-items-center gap-2" name="about.item.phone">
-                                    <i
-                                        class="bi bi-telephone"></i> 33757005467
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-person-fill"></i> 
+                                    <span id="perfil-nome">carregando...</span>
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-shield-lock-fill"></i> 
+                                    <span id="perfil-tipo">carregando...</span>
                                 </li>
                             </ul>
                         </div>
                     </section>
-
                     <div class="col">
                         
                     </div>
@@ -157,18 +146,18 @@
                                 </li>
                                 <li>
                                     <div class="user-options">
-                                        <a href="">Alterar Senha</a>
+                                        <a href="" id="btn-alterar-senha">Alterar Senha</a>
                                         
                                     </div>
                                 </li>
                                 <li>
                                     <div class="user-options">
-                                        <a href="">Alterar Nome de usuário</a>
+                                        <a href="" id="btn-alterar-nome">Alterar Nome de usuário</a>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="user-options">
-                                        <a href="">Alterar Email</a>
+                                        <a href="" id="btn-alterar-email">Alterar Email</a>
                                        
                                     </div>
                                 </li>
@@ -192,6 +181,11 @@
                                         <span>Dados de usuário</span>
                                     </div>
                                 </li>
+                                <li>
+                                    <div class="user-options">
+                                        <a href="#" id="btn-excluir-conta" style="color: red;">Excluir minha conta</a>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -201,7 +195,7 @@
 
     </div>
 
-
+<script src="/js/config.js"></script>
 </body>
 
 </html>
