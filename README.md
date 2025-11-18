@@ -1,6 +1,6 @@
 # 🏅 Conecta Atleta – Conectando Sonhos ao Esporte
 
-![Logo Conecta Atleta](assets/logo.png)
+![Logo Conecta Atleta](img/logoConectaAtleta.png)
 
 🔗 [Acesse o site aqui](https://amanda-scarvalho.github.io/Projeto-Integrador/)
 

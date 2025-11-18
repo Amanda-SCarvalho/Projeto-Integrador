@@ -11,7 +11,7 @@ btnLogin.addEventListener("click", () => {
 });
 const formCadastro = document.querySelector(".sign-up form");
 
-formCadastro.addEventListener("submit", async(ev) => {
+formCadastro.addEventListener("submit", async (ev) => {
   ev.preventDefault();
 
   const nome = document.getElementById("nome").value.trim();
@@ -56,7 +56,7 @@ formCadastro.addEventListener("submit", async(ev) => {
       alert("Erro ao cadastrar. O email pode já estar em uso.");
     }
 
-  }catch (erro) {
+  } catch (erro) {
     console.error("Erro na requisição:", erro);
   }
 });
@@ -74,16 +74,16 @@ formLogin.addEventListener("submit", async (ev) => {
     alert("Preencha todos os campos!");
     return;
   }
-  
+
   //Cria o Packet de Requisição la no Beck
   const loginRequest = {
     email: email,
     senha: senha
   };
-  
+
   try {
     const response = await fetch('http://localhost:8080/api/usuarios/login', {
-      method:'POST',
+      method: 'POST',
       headers: {
         'Content-Type': 'appLication/json'
       },
@@ -91,13 +91,16 @@ formLogin.addEventListener("submit", async (ev) => {
     });
 
     if (response.ok) {
-      const usuarioLogado = await response.json(); 
+      const usuarioLogado = await response.json();
       alert(`Bem-vindo, ${usuarioLogado.nome}!`);
 
       localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
 
-      //redirec pro perfil do usuario
-      window.location.href = "perfil.html";
+      if (usuarioLogado.tipoUsuario === "ADMIN") {
+        window.location.href = "admin.html";
+      } else {
+        window.location.href = "perfil.html";
+      }
 
     } else if (response.status === 401) {
       //findByEmail não achou, ValidaSenha errado!! Display do erro 401
@@ -114,18 +117,18 @@ formLogin.addEventListener("submit", async (ev) => {
 });
 
 function createParticles() {
-    const container = document.getElementById('particles');
-    if (!container) return;
-    
-    for (let i = 0; i < 40; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 8 + 's';
-        particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
-        container.appendChild(particle);
-    }
+  const container = document.getElementById('particles');
+  if (!container) return;
+
+  for (let i = 0; i < 40; i++) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 8 + 's';
+    particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+    container.appendChild(particle);
+  }
 }
 document.addEventListener("DOMContentLoaded", () => {
   createParticles();
