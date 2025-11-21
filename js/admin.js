@@ -1,4 +1,4 @@
-const API_URL = "https://api-conectaatleta.onrender.com/api/usuarios/login";
+const API_URL = "https://api-conectaatleta.onrender.com/api/usuarios";
 
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -22,7 +22,7 @@ async function carregarUsuarios() {
     const container = document.getElementById("usuarios");
 
     try {
-        const response = await fetch(`${API_URL}/api/usuarios/listar`);
+        const response = await fetch(`${API_URL}/listar`);
         const usuarios = await response.json();
 
         container.innerHTML = "";
