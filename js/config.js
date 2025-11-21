@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             console.error("Erro de rede:", error);
         }
-    });S
+    });
 
     //alter email
     document.getElementById("btn-alterar-email").addEventListener("click", async (e) => {
