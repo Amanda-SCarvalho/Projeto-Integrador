@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // se for, puxa os dados do usuario no beck
     const usuarioId = usuarioLogado.id;
 
-    fetch(`http://localhost:8080/api/usuarios/${usuarioId}`)
+    fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}`)
         .then(response => {
             if (!response.ok) {
                 // Deletado ou erro (não consta no localhost 8080)
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
         try {
-            const response = await fetch(`http://localhost:8080/api/usuarios/${usuarioId}`, {
+            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}`, {
                 method: 'DELETE'
             });
 
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!novoNome) return; // Se o usuário cancelar
 
         try {
-            const response = await fetch(`http://localhost:8080/api/usuarios/${usuarioId}/nome`, {
+            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}/nome`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nome: novoNome }) // Envia o record UpdateNome
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!novoEmail) return;
 
         try {
-            const response = await fetch(`http://localhost:8080/api/usuarios/${usuarioId}/email`, {
+            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}/email`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: novoEmail }) // Envia o record UpdateEmail
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!senhaNova) return;
 
         try {
-            const response = await fetch(`http://localhost:8080/api/usuarios/${usuarioId}/senha`, {
+            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}/senha`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ // Envia o record UpdateSenha

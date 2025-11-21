@@ -38,7 +38,7 @@ formCadastro.addEventListener("submit", async (ev) => {
   };
 
   try {
-    const response = await fetch("http://localhost:8080/api/usuarios/cadastrar", {
+    const response = await fetch("https://api-conectaatleta.onrender.com/api/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -82,10 +82,10 @@ formLogin.addEventListener("submit", async (ev) => {
   };
 
   try {
-    const response = await fetch('http://localhost:8080/api/usuarios/login', {
+    const response = await fetch('https://api-conectaatleta.onrender.com/api/usuarios/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'appLication/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(loginRequest)
     });
