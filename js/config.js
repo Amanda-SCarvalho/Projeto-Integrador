@@ -1,44 +1,57 @@
+//Add event list tá esperando o carregamento do DOM
 document.addEventListener("DOMContentLoaded", () => {
 
+    // recupera o usuário logado do localStorage
     const API_BASE_URL = "https://api-conectaatleta.onrender.com/api/usuarios";
+
+    
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
+    // se nao for um usuario logado, volta pro login
     if (!usuarioLogado) {
         alert("Você precisa estar logado para ver esta página.");
         window.location.href = "login.html"; 
         return; 
     }
 
+    // se for, puxa os dados do usuario no beck
     const usuarioId = usuarioLogado.id;
 
-    fetch(`${API_BASE_URL}/${usuarioId}`)
+    fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}`)
         .then(response => {
             if (!response.ok) {
+                // Deletado ou erro (não consta no localhost 8080)
                 throw new Error("Não foi possível carregar os dados do usuário.");
             }
             return response.json();
         })
         .then(usuario => {
+            // puxa do beck pros campos HMTL
+
             document.getElementById("perfil-email").textContent = usuario.email;
             document.getElementById("perfil-nome").textContent = usuario.nome;
             document.getElementById("perfil-tipo").textContent = usuario.tipoUsuario;
+            
         })
         .catch(error => {
-            console.error(error);
+            console.error("Erro ao buscar usuário:", error);
             alert("Erro ao carregar dados. Faça login novamente.");
             localStorage.removeItem("usuarioLogado"); 
             window.location.href = "login.html";
         }); 
 
-    document.getElementById("btn-excluir-conta").addEventListener("click", async (e) => {
+
+
+        // apagar a conta 
+        document.getElementById("btn-excluir-conta").addEventListener("click", async (e) => {
         e.preventDefault(); 
 
-        if (!confirm("TEM CERTEZA? Isso vai apagar sua conta permanentemente.")) {
-            return; 
-        }
+    if (!confirm("TEM CERTEZA? Isso vai apagar sua conta permanentemente.")) {
+        return; 
+    }
 
         try {
-            const response = await fetch(`${API_BASE_URL}/${usuarioId}`, {
+            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}`, {
                 method: 'DELETE'
             });
 
@@ -49,24 +62,26 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 alert("Erro ao excluir conta.");
             }
+
         } catch (error) {
-            console.error(error);
+            console.error("Erro ao excluir conta:", error);
             alert("Erro de rede ao tentar excluir conta.");
         }
     });
 
+    //alter nome
     document.getElementById("btn-alterar-nome").addEventListener("click", async (e) => {
-        e.preventDefault(); 
+        e.preventDefault(); // Impede o link de navegar
 
         const novoNome = prompt("Digite seu novo nome de usuário:");
         
-        if (!novoNome) return; 
+        if (!novoNome) return; // Se o usuário cancelar
 
         try {
-            const response = await fetch(`${API_BASE_URL}/${usuarioId}/nome`, {
+            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}/nome`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nome: novoNome }) 
+                body: JSON.stringify({ nome: novoNome }) // Envia o record UpdateNome
             });
 
             if (response.ok) {
@@ -79,10 +94,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Erro ao atualizar o nome.");
             }
         } catch (error) {
-            console.error(error);
+            console.error("Erro de rede:", error);
         }
-    });
+    });S
 
+    //alter email
     document.getElementById("btn-alterar-email").addEventListener("click", async (e) => {
         e.preventDefault();
 
@@ -91,10 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!novoEmail) return;
 
         try {
-            const response = await fetch(`${API_BASE_URL}/${usuarioId}/email`, {
+            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}/email`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: novoEmail }) 
+                body: JSON.stringify({ email: novoEmail }) // Envia o record UpdateEmail
             });
 
             if (response.ok) {
@@ -106,10 +122,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Erro ao atualizar o email.");
             }
         } catch (error) {
-            console.error(error);
+            console.error("Erro de rede:", error);
         }
     });
 
+    //alter senha
     document.getElementById("btn-alterar-senha").addEventListener("click", async (e) => {
         e.preventDefault();
 
@@ -120,10 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!senhaNova) return;
 
         try {
-            const response = await fetch(`${API_BASE_URL}/${usuarioId}/senha`, {
+            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}/senha`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
+                body: JSON.stringify({ // Envia o record UpdateSenha
                     senhaAntiga: senhaAntiga, 
                     senhaNova: senhaNova 
                 })
@@ -134,12 +151,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.removeItem("usuarioLogado");
                 window.location.href = "login.html";
             } else if (response.status === 401) {
+
                 alert("Senha antiga incorreta!");
             } else {
                 alert("Erro ao atualizar a senha.");
             }
         } catch (error) {
-            console.error(error);
+            console.error("Erro de rede:", error);
         }
     });
+
 });
