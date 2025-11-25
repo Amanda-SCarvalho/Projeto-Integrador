@@ -156,20 +156,26 @@ body {
     margin-top: 0;
 }
 
-.inativar {
-    background: #e63946;
+.btn-excluir-conta {
+    background: #e10606; 
     color: #fff;
     border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 10px 14px;
+    border-radius: 10px;
     cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.25);
+    transition: 0.25s ease;
 }
 
-.reativar {
-    background: #2a9d8f;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
+.btn-excluir-conta:hover {
+    background: #c5303c; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(230, 57, 70, 0.35);
+}
+
+.btn-excluir-conta:active {
+    transform: scale(0.97);
 }

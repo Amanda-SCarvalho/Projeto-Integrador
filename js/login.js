@@ -96,7 +96,9 @@ formLogin.addEventListener("submit", async (ev) => {
 
       localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
 
-      if (usuarioLogado.tipoUsuario === "ADMIN") {
+      const EMAIL_ADMIN = "admin@admin.com";
+
+      if (usuarioLogado.email === EMAIL_ADMIN) {
         window.location.href = "admin.html";
       } else {
         window.location.href = "perfil.html";

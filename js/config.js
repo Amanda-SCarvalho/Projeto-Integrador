@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // recupera o usuário logado do localStorage
     const API_BASE_URL = "https://api-conectaatleta.onrender.com/api/usuarios";
 
-    
+
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
     // se nao for um usuario logado, volta pro login
     if (!usuarioLogado) {
         alert("Você precisa estar logado para ver esta página.");
-        window.location.href = "login.html"; 
-        return; 
+        window.location.href = "login.html";
+        return;
     }
 
     // se for, puxa os dados do usuario no beck
@@ -31,134 +31,115 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("perfil-email").textContent = usuario.email;
             document.getElementById("perfil-nome").textContent = usuario.nome;
             document.getElementById("perfil-tipo").textContent = usuario.tipoUsuario;
-            
+
         })
         .catch(error => {
             console.error("Erro ao buscar usuário:", error);
             alert("Erro ao carregar dados. Faça login novamente.");
-            localStorage.removeItem("usuarioLogado"); 
+            localStorage.removeItem("usuarioLogado");
             window.location.href = "login.html";
-        }); 
+        });
 
+    function abrirModal(titulo, conteudoHTML, callbackConfirmar) {
+        document.getElementById("modal-title").textContent = titulo;
+        document.getElementById("modal-body").innerHTML = conteudoHTML;
 
+        const modal = document.getElementById("modal");
+        modal.classList.remove("hidden");
 
-        // apagar a conta 
-        document.getElementById("btn-excluir-conta").addEventListener("click", async (e) => {
-        e.preventDefault(); 
+        const btnCancelar = document.getElementById("modal-cancelar");
+        const btnConfirmar = document.getElementById("modal-confirmar");
 
-    if (!confirm("TEM CERTEZA? Isso vai apagar sua conta permanentemente.")) {
-        return; 
+        btnCancelar.onclick = () => modal.classList.add("hidden");
+        btnConfirmar.onclick = () => callbackConfirmar();
     }
 
-        try {
-            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}`, {
-                method: 'DELETE'
-            });
 
-            if (response.ok) {
-                alert("Conta excluída com sucesso.");
-                localStorage.removeItem("usuarioLogado"); 
-                window.location.href = "login.html"; 
-            } else {
-                alert("Erro ao excluir conta.");
-            }
 
-        } catch (error) {
-            console.error("Erro ao excluir conta:", error);
-            alert("Erro de rede ao tentar excluir conta.");
-        }
-    });
 
-    //alter nome
-    document.getElementById("btn-alterar-nome").addEventListener("click", async (e) => {
-        e.preventDefault(); // Impede o link de navegar
+    // apagar a conta 
+    document.getElementById("btn-excluir-conta").addEventListener("click", () => {
+        abrirModal(
+            "Excluir Conta",
+            `<p style="color:#c5303c;font-weight:bold">Essa ação é permanente.</p>`,
+            async () => {
+                await fetch(`${API_BASE_URL}/${usuarioId}`, { method: "DELETE" });
 
-        const novoNome = prompt("Digite seu novo nome de usuário:");
-        
-        if (!novoNome) return; // Se o usuário cancelar
-
-        try {
-            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}/nome`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nome: novoNome }) // Envia o record UpdateNome
-            });
-
-            if (response.ok) {
-                const usuarioAtualizado = await response.json();
-                alert("Nome atualizado com sucesso!");
-                
-                document.getElementById("perfil-nome").textContent = usuarioAtualizado.nome;
-                localStorage.setItem("usuarioLogado", JSON.stringify(usuarioAtualizado));
-            } else {
-                alert("Erro ao atualizar o nome.");
-            }
-        } catch (error) {
-            console.error("Erro de rede:", error);
-        }
-    });
-
-    //alter email
-    document.getElementById("btn-alterar-email").addEventListener("click", async (e) => {
-        e.preventDefault();
-
-        const novoEmail = prompt("Digite seu novo email:");
-        
-        if (!novoEmail) return;
-
-        try {
-            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}/email`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: novoEmail }) // Envia o record UpdateEmail
-            });
-
-            if (response.ok) {
-                const usuarioAtualizado = await response.json();
-                alert("Email atualizado com sucesso!");
-                document.getElementById("perfil-email").textContent = usuarioAtualizado.email;
-                localStorage.setItem("usuarioLogado", JSON.stringify(usuarioAtualizado));
-            } else {
-                alert("Erro ao atualizar o email.");
-            }
-        } catch (error) {
-            console.error("Erro de rede:", error);
-        }
-    });
-
-    //alter senha
-    document.getElementById("btn-alterar-senha").addEventListener("click", async (e) => {
-        e.preventDefault();
-
-        const senhaAntiga = prompt("Digite sua senha ANTIGA:");
-        if (!senhaAntiga) return;
-        
-        const senhaNova = prompt("Digite sua senha NOVA:");
-        if (!senhaNova) return;
-
-        try {
-            const response = await fetch(`https://api-conectaatleta.onrender.com/api/usuarios/${usuarioId}/senha`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ // Envia o record UpdateSenha
-                    senhaAntiga: senhaAntiga, 
-                    senhaNova: senhaNova 
-                })
-            });
-
-            if (response.ok) {
-                alert("Senha atualizada com sucesso! Faça login novamente.");
                 localStorage.removeItem("usuarioLogado");
                 window.location.href = "login.html";
-            } else if (response.status === 401) {
-
-                alert("Senha antiga incorreta!");
-            } else {
-                alert("Erro ao atualizar a senha.");
             }
-        } catch (error) {
-            console.error("Erro de rede:", error);
-        }
+        );
     });
+
+
+    //alter nome
+    document.getElementById("btn-alterar-nome").addEventListener("click", () => {
+        abrirModal(
+            "Alterar Nome",
+            `<input type="text" id="novoNome" placeholder="Digite o novo nome">`,
+            async () => {
+                const novoNome = document.getElementById("novoNome").value;
+                if (!novoNome) return;
+
+                await fetch(`${API_BASE_URL}/${usuarioId}/nome`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ nome: novoNome })
+                });
+
+                document.getElementById("perfil-nome").textContent = novoNome;
+                document.getElementById("modal").classList.add("hidden");
+            }
+        );
+    });
+
+
+    //alter email
+    document.getElementById("btn-alterar-email").addEventListener("click", () => {
+        abrirModal(
+            "Alterar Email",
+            `<input type="email" id="novoEmail" placeholder="Digite o novo email">`,
+            async () => {
+                const novoEmail = document.getElementById("novoEmail").value;
+                if (!novoEmail) return;
+
+                await fetch(`${API_BASE_URL}/${usuarioId}/email`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email: novoEmail })
+                });
+
+                document.getElementById("perfil-email").textContent = novoEmail;
+                document.getElementById("modal").classList.add("hidden");
+            }
+        );
+    });
+
+
+    //alter senha
+    document.getElementById("btn-alterar-senha").addEventListener("click", () => {
+        abrirModal(
+            "Alterar Senha",
+            `
+            <input type="password" id="senhaAntiga" placeholder="Senha antiga">
+            <input type="password" id="senhaNova" placeholder="Senha nova">
+        `,
+            async () => {
+                const senhaAntiga = document.getElementById("senhaAntiga").value;
+                const senhaNova = document.getElementById("senhaNova").value;
+
+                await fetch(`${API_BASE_URL}/${usuarioId}/senha`, {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ senhaAntiga, senhaNova })
+                });
+
+                alert("Senha atualizada. Faça login novamente.");
+                localStorage.removeItem("usuarioLogado");
+                window.location.href = "login.html";
+            }
+        );
+    });
+
 
 });
