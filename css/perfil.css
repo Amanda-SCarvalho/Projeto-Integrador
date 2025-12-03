@@ -5,12 +5,12 @@
   =========================
 */
 :root {
-    --cor-sidebar: #0a2a73;
+    --cor-sidebar: #0a1a6d;
     --cor-fundo: #f2f4f8;
     --cor-texto-principal: #333;
-    --cor-sucesso: #4ad66d;
+    --cor-sucesso: #0a1a6d;
     /* Verde para 'Seguir' e 'Criar' */
-    --cor-hover: #3fc863;
+    --cor-hover: #0a1a6d;
     --largura-sidebar-desktop: 220px;
     --largura-sidebar-tablet: 80px;
 }
@@ -132,8 +132,10 @@ body {
     background: white;
 }
 
-.btn-seguir{
-    background-color: #4ad66d;
+.btn-seguir{ 
+    
+    color: white;
+    background-color: #0a1a6d;
 }
 
 .sobre {
